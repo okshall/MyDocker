@@ -19,7 +19,7 @@ RUN apt-get install -y \
     vim net-tools sudo gawk \
     tar git curl wget build-essential u-boot-tools cpio busybox \
 	libncurses5-dev lib32ncurses5 lib32z1 lib32stdc++6
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+COPY ./files/localtime /etc/localtime
 
 RUN useradd --create-home --no-log-init --shell /bin/bash ky
 RUN adduser ky sudo
