@@ -34,7 +34,7 @@ RUN apt-get install -y libncurses5-dev lib32ncurses5 lib32z1 lib32stdc++6
 # 安装源码所需编译工具
 RUN apt-get install -y git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib
 RUN apt-get install -y libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev python busybox
-RUN apt-get install -y libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip
+RUN apt-get install -y libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip bc liblz4-tool
 
 # 配置java环境（这里使用openjdk-7）
 # 注：Android5.x - Android 6.0编译需要用jdk7，Android7.0及其以上需要用jdk8
@@ -48,4 +48,5 @@ RUN adduser ky sudo
 RUN echo 'root:1' | chpasswd
 RUN echo 'ky:1' | chpasswd
 USER ky
+ENV USER ky
 WORKDIR /home/ky
